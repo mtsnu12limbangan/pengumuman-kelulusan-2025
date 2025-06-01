@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pengumuman Kelulusan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f7;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        img.logo {
+            width: 100px;
+            margin-bottom: 20px;
+        }
+        h1, h2, h3 {
+            margin: 5px 0;
+        }
+        input, button {
+            padding: 10px;
+            width: 100%;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="LOGO-LP-MAARIF-NU.png" alt="Logo LP Ma'arif NU" class="logo">
+        <h1>Pengumuman Kelulusan</h1>
+        <h2>Mts 12 KI Ageng Mataram Limbangan</h2>
+        <h3>Tahun Ajaran 2024/2025</h3>
+        <form onsubmit="checkData(event)">
+            <input type="text" id="nisn" placeholder="Masukkan NISN" required>
+            <input type="date" id="dob" required>
+            <button type="submit">Cek Kelulusan</button>
+        </form>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        const data = {
+            "0084513654": ["AAN PUTRA PRATAMA", "2008-11-07"],
+            "0108851168": ["AIRA SYAFA AZZURA", "2010-02-02"],
+            "0103304300": ["ANTIKA MAULIDAH", "2010-04-01"],
+            "0104263601": ["ARPENLION SETYAWAN", "2010-08-30"],
+            "0095411447": ["AUFA ZAHRA FITRIANA", "2009-09-23"],
+            "0103086602": ["EL NINO ARAYYA BASUKI", "2010-09-16"],
+            "0094779235": ["FADHIL TSABITUL AZZAM", "2009-12-18"],
+            "0106483816": ["FEBRIAN MUHAMMAD FAHRI", "2010-02-05"],
+            "0109799543": ["FIRMANSYAH", "2010-11-03"],
+            "0107534557": ["HAFIRZAL NUR ILHAM", "2010-02-02"],
+            "0096916726": ["HAIKAL KHOIRUL ANAM", "2009-09-24"],
+            "0094622579": ["KEYSA HUSNA AWALIA", "2009-08-28"],
+            "0097711508": ["MUHAMMAD ASRORIL MUSTOFA", "2009-11-16"],
+            "0103213090": ["NAJWA LIZAM SALSABILA", "2010-10-05"],
+            "0101564825": ["RAKA RIZKI NURHUDA", "2010-04-23"],
+            "0099497564": ["RAMA HIDAYAT SAPUTRA", "2009-10-14"],
+            "0165951150": ["RIDHWAN MAHARDIKA", "2010-09-04"],
+            "0093951982": ["SALIS HUSNA LUTFIKA", "2009-11-11"],
+            "0111821659": ["SYAKY ARIYANTO", "2011-06-04"],
+            "0098998346": ["UBAID AFWAN AGIL FAYYAD", "2009-07-12"],
+            "3105259841": ["ULINNUHA ALAM SAPUTRA", "2010-06-15"],
+            "0105446444": ["WIDYA CAHYA SABELA", "2010-01-05"],
+            "0092305121": ["YOGI KHOIRUL PAHSA", "2009-11-29"],
+            "0098104454": ["ZAKA RAMDAN PRADITYA", "2009-09-16"],
+            "0102807626": ["ZILDAHARIF SETYAWAN", "2010-08-30"]
+        };
+
+        function checkData(event) {
+            event.preventDefault();
+            const nisn = document.getElementById("nisn").value.trim();
+            const dob = document.getElementById("dob").value;
+            const result = document.getElementById("result");
+
+            if (data[nisn] && data[nisn][1] === dob) {
+                result.innerHTML = `${data[nisn][0]}<br><span style="color: green;">Selamat, Anda LULUS.</span>`;
+            } else {
+                result.innerHTML = `<span style="color: red;">Data tidak ditemukan atau tidak cocok.</span>`;
+            }
+        }
+    </script>
+</body>
+</html>
